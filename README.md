@@ -1,6 +1,8 @@
 # Brodmann17 Face Detector
 
-We share here a version of Brodmann17's super fast and accurate face detection library.   
+You can use this forked repo to detect face in image/images/webcam and also for benchmarking face detection performance in AFW,PASCAL,FDDB,UFDD and WIDER face dataset. 
+
+From Authors: We share here a version of Brodmann17's super fast and accurate face detection library.   
 This detector is based on a proprietary deep-learning algorithm which allows to run highly accurate CNNs  
 efficiently on **ARM** CPUs.
 
@@ -60,12 +62,36 @@ efficiently on **ARM** CPUs.
         make
         cd ..
 ````
-    
- - To run the example
 
+#### 1. Test webcam
 ```
-        build/example <input image filename>
-``` 
+$./build/example -mode=0 -webcam=0
+```
+#### 2. Test single image
+```
+$./build/example -mode=1 -path=../image/1.jpg
+```
+#### 3. Test image lists
+```
+$./build/example -mode=2 -path=../image/
+```
+#### 4. Evaluation in benchmark dataset, detection files will be stored in `example/detections` folder. 
+```
+a) afw dataset
+$./build/example -mode=3 -dataset=AFW -path=/path/to/afw/dataset/
+
+b) PASCAL dataset
+$./build/example -mode=3 -dataset=PASCAL -path=/path/to/pascal/dataset/
+
+c) FDDB dataset
+$./build/example -mode=3 -dataset=FDDB -path=/path/to/fddb/dataset/
+
+d) WIDER_val dataset
+#./build/example -mode=3 -dataset=WIDER_VAL -path=/path/to/wider/validation/dataset/
+
+e) UFDD dataset
+#./build/example -mode=3 -dataset=UFDD -path=/path/to/UFDD/validation/dataset/
+```
 
 ## Getting started (python)
  - Requirements:
